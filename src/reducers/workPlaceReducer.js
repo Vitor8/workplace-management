@@ -6,6 +6,14 @@ const INITIAl_STATE = {
 
 const workPlaceReducer = (state = INITIAl_STATE, action) => {
     switch (action.type) {
+
+    case 'CHECK_SESSION_STORAGE': {
+      return {
+        ...state,
+        arrLocaisdeTrabalho: action.payload,
+      }
+    }
+
     case 'ADD_WORKPLACE':
       const newWorkPlace = {
         id: state.arrLocaisdeTrabalho.length,
@@ -13,17 +21,23 @@ const workPlaceReducer = (state = INITIAl_STATE, action) => {
         workPlace: action.payload.workPlace,
         isItemBeingUpdated: false,
       }
-      return {
+      const newStateADD = {
         ...state,
-        arrLocaisdeTrabalho: [ ...state.arrLocaisdeTrabalho, newWorkPlace ]
+        arrLocaisdeTrabalho: [ ...state.arrLocaisdeTrabalho, newWorkPlace],
       }
+      sessionStorage.setItem('arrLocaisTrabalho', JSON.stringify(newStateADD));
+
+      return newStateADD;
   
     case 'REMOVE_WORKPLACE':
       const newWorkPlaces = state.arrLocaisdeTrabalho.filter((item) => item.id !== action.payload);
-      return {
+      const newStateREMOVE = {
         ...state,
         arrLocaisdeTrabalho: newWorkPlaces,
-      };
+      }
+      sessionStorage.setItem('arrLocaisTrabalho', JSON.stringify(newStateREMOVE));
+
+      return newStateREMOVE;
 
     case 'IS_UPDATING_WORK_PLACE':
       const updatingWorkPlace = [...state.arrLocaisdeTrabalho];
@@ -32,11 +46,13 @@ const workPlaceReducer = (state = INITIAl_STATE, action) => {
           updatingWorkPlace[index].isItemBeingUpdated = !updatingWorkPlace[index].isItemBeingUpdated;
         }
       })
-
-      return {
+      const newStateISUPDATING = {
         ...state,
-        arrLocaisdeTrabalho: updatingWorkPlace,
-      };
+        arrLocaisdeTrabalho: updatingWorkPlace,      
+      }
+      sessionStorage.setItem('arrLocaisTrabalho', JSON.stringify(newStateISUPDATING));
+
+      return newStateISUPDATING;
   
     case 'UPDATE_WORKPLACE':
       const updatedWorkPlace = [...state.arrLocaisdeTrabalho];
@@ -46,10 +62,13 @@ const workPlaceReducer = (state = INITIAl_STATE, action) => {
           updatedWorkPlace[index].workPlace = action.payload.workPlace;
         }
       })
-      return {
+      const newStateUPDATED = {
         ...state,
-        arrLocaisdeTrabalho: updatedWorkPlace,
-      };
+        arrLocaisdeTrabalho: updatedWorkPlace,        
+      }
+      sessionStorage.setItem('arrLocaisTrabalho', JSON.stringify(newStateUPDATED));
+
+      return newStateUPDATED;
   
     default:
       return state;

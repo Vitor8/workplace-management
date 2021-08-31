@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as workPlaceActions from '../actions/index';
 
-function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPlace }) {
+function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPlace, checkSessionStorage }) {
   const [arrSelect, setArrSelect] = useState([]);
   const [arrInput, setArrInput] = useState([]);
+  const [hasCheckedSessionStorage, setHasCheckedSessionStorage] = useState(false);
+
+  useEffect(() => {
+    const savedWorkPlaces = JSON.parse(sessionStorage.getItem('arrLocaisTrabalho')) || [];
+    checkSessionStorage(savedWorkPlaces.arrLocaisdeTrabalho);
+    setHasCheckedSessionStorage(true);
+  },[]);
 
   useEffect(() => {
     const selectedBuildingArray = [];
@@ -59,8 +66,8 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
   }
 
   function prepareToUpdateWorkPlace(itemId) {
-    let newBuilding = '1000';
-    let newWorkPlace = '1000';
+    let newBuilding = '';
+    let newWorkPlace = '';
     arrSelect.forEach((item) => {
       if (item.id === itemId) newBuilding = item.selectedBuilding; 
     });
@@ -113,7 +120,7 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
         <th className="table-title">Local de Trabalho</th>
         <th className="table-title"> </th>
       </tr>
-        {
+        { hasCheckedSessionStorage &&
           workPlaces.map((item) => {
             if(!item.isItemBeingUpdated) return renderNormalRow(item);
             return  renderUpdatingRow(item);
@@ -132,6 +139,7 @@ const mapDispatchToProps = (dispatch) => ({
   removeWorkPlace: (idWorkPlace) => dispatch(workPlaceActions.removeWorkPlace(idWorkPlace)),
   isUpdatingWorkPlace: (idWorkPlace) => dispatch(workPlaceActions.isUpdatingWorkPlace(idWorkPlace)),
   updateWorkPlace: (updateObject) => dispatch(workPlaceActions.updateWorkPlace(updateObject)),
+  checkSessionStorage: (arrLocaisdeTrabalho) => dispatch(workPlaceActions.checkSessionStorage(arrLocaisdeTrabalho)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
