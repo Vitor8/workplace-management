@@ -5,13 +5,22 @@ import * as workPlaceActions from '../actions/index';
 function InputTable({ addWorkPlace }) {
   const [selectedBuilding, setSelectedBuilding] = useState('');
   const [workPlace, setWorkPlace] = useState('');
+
+  function newWorkPlace(selectedBuilding, workPlace) {
+    addWorkPlace(selectedBuilding, workPlace);
+    setSelectedBuilding('');
+    setWorkPlace('');
+  }
+
   return (
     <div className="input-table">
+
       <div className="input-building-table">
         <label>Prédio</label><br />
         <select
           className="select-table"
           onChange={(e) => setSelectedBuilding(e.target.value)}
+          value={ selectedBuilding }
         >
           <option> </option>
           <option value="1">1</option>
@@ -19,20 +28,24 @@ function InputTable({ addWorkPlace }) {
           <option value="3">3</option>
         </select>
       </div>
+
       <div className="input-workplace-table">
         <label>Local de Trabalho</label><br />
         <input
           type="text"
           className="inputText-table"
+          value={ workPlace }
           onChange={(e) => setWorkPlace(e.target.value)}
         />
       </div>
+
       <button
         className="add-button"
-        onClick={ () => addWorkPlace(selectedBuilding, workPlace) }
+        onClick={ () => newWorkPlace(selectedBuilding, workPlace) }
       >
         +
       </button>
+
     </div>
   )
 }

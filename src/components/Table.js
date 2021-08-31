@@ -117,19 +117,19 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
 
   return (
     <div className="table">
-    <table>
-      <tr>
-        <th className="table-title">Prédio</th>
-        <th className="table-title">Local de Trabalho</th>
-        <th className="table-title-none"></th>
-      </tr>
-        { hasCheckedSessionStorage &&
-          workPlaces.map((item) => {
-            if(!item.isItemBeingUpdated) return renderNormalRow(item);
-            return  renderUpdatingRow(item);
-          })
-        }
-    </table>
+      <table>
+        <tr>
+          <th className="table-title">Prédio</th>
+          <th className="table-title">Local de Trabalho</th>
+          <th className="table-title-none"></th>
+        </tr>
+          { hasCheckedSessionStorage &&
+            workPlaces.map((item) => {
+              if(!item.isItemBeingUpdated) return renderNormalRow(item);
+              return  renderUpdatingRow(item);
+            })
+          }
+      </table>
   </div>
   )
 }

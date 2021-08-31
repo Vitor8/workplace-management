@@ -1,18 +1,38 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: rgb(53, 53, 226);
+  background-color: rgb(94, 94, 122);
   color: white;
+  background-image: url('https://t4.ftcdn.net/jpg/02/76/08/07/360_F_276080724_hltnCyDjcqAyRtLzDYo3T2jXbBtCD7fl.jpg');
 }
 
 .header-login-container {
   display: flex;
-  width: 15%;
+  width: 20%;
   justify-content: space-around;
+  align-items: center;
 }
 
 .header-title {
   margin-left: 3%;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.header-user-icon {
+  margin-right: 4%;
+}
+
+.header-user-information {
+  font-size: 10px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
 }
