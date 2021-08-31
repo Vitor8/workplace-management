@@ -13,12 +13,36 @@ h4, input {
   display: flex;
   flex-direction: column;
   width: 20%;
-  background-color: rgb(172, 130, 75);
+  background-image: linear-gradient(rgb(18, 18, 70), rgb(1, 104, 136));
+  font-size: 14px;
+}
+
+.option-list-label {
+  display: flex;
+  color: white;
+  height: 5%;
+  margin-top: 5%;
+  margin-left: 5%; 
+}
+
+.icon-config {
+  margin-right: 4%;
 }
 
 .option-list-button {
+  background-color: rgb(18, 18, 70); /* Green */
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
   height: 5%;
   margin-top: 3%;
+  font-size: 13px;
+  text-align: left;
+}
+
+.option-list-button:hover {
+  background-color: rgb(69, 69, 133); /* Green */
 }
 
 .main-section-content-container {
