@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as workPlaceActions from '../actions/index';
+import PenIcon from '../icons/pen-icon.png';
+import DumpIcon from '../icons/dump-icon.png';
+import CorrectIcon from '../icons/correct-icon.png';
 
 function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPlace, checkSessionStorage }) {
   const [arrSelect, setArrSelect] = useState([]);
@@ -55,11 +58,11 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
   function renderNormalRow(item) {
     return (
       <tr>
-        <td className="table-title">{ item.selectedBuilding }</td>
-        <td className="table-title">{ item.workPlace }</td>
-        <td>
-          <button onClick={() => isUpdatingWorkPlace(item.id)}>A</button>
-          <button onClick={() => removeWorkPlace(item.id)}>D</button>
+        <td className="table-row">{ item.selectedBuilding }</td>
+        <td className="table-row">{ item.workPlace }</td>
+        <td className="table-row-buttons">
+          <input type="image" src={ PenIcon } width="22px" height="22px" onClick={() => isUpdatingWorkPlace(item.id)} />
+          <input type="image" src={ DumpIcon } width="22px" height="22px" onClick={() => removeWorkPlace(item.id)} />
         </td>
       </tr>
     );
@@ -89,7 +92,7 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
 
         <td>
           <select
-            className="select-table"
+            className="table-row-updating"
             onChange={ (e) => updateArrSelect(e.target.value, item.id) }
           >
             <option> </option>
@@ -100,12 +103,12 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
         </td>
 
         <td>
-          <input type="text" onChange={ (e) => updateArrInput(e.target.value, item.id) }  />
+          <input type="text" className="table-row-updating" onChange={ (e) => updateArrInput(e.target.value, item.id) }  />
         </td>
 
-        <td>
-          <button onClick={ () => prepareToUpdateWorkPlace(item.id) }>C</button>
-          <button onClick={() => removeWorkPlace(item.id)}>D</button>
+        <td className="table-row-buttons">
+          <input type="image" src={ CorrectIcon } width="22px" height="22px" onClick={() => prepareToUpdateWorkPlace(item.id)} />
+          <input type="image" src={ DumpIcon } width="22px" height="22px" onClick={() => removeWorkPlace(item.id)} />
         </td>
 
       </tr>
@@ -118,7 +121,7 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
       <tr>
         <th className="table-title">Prédio</th>
         <th className="table-title">Local de Trabalho</th>
-        <th className="table-title"> </th>
+        <th className="table-title-none"></th>
       </tr>
         { hasCheckedSessionStorage &&
           workPlaces.map((item) => {

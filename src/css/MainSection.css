@@ -5,7 +5,6 @@ h4, input {
 
 .main-section-container {
   display: flex;
-  background-color: burlywood;
   height: 560px;
 }
 
@@ -30,7 +29,7 @@ h4, input {
 }
 
 .option-list-button {
-  background-color: rgb(18, 18, 70); /* Green */
+  background-color: rgb(18, 18, 70);
   border: none;
   color: white;
   text-decoration: none;
@@ -42,21 +41,24 @@ h4, input {
 }
 
 .option-list-button:hover {
-  background-color: rgb(69, 69, 133); /* Green */
+  background-color: rgb(69, 69, 133);
 }
 
 .main-section-content-container {
   width: 78%;
-  padding: 2%;
-  background-color: cadetblue;
+  padding-top: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 
 .main-section-title {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(18, 18, 70);
   height: 25px;
   width: 100%;
+  color: rgb(18, 18, 70);
+  font-weight: normal;
 }
 
 .main-section-content-table-container {
@@ -66,7 +68,6 @@ h4, input {
 
 .input-table {
   display: flex;
-  background-color: burlywood;
   padding-left: 2%;
   padding-top: 2%;
   margin-bottom: 1%;
@@ -74,6 +75,13 @@ h4, input {
 
 .input-building-table {
   margin-right: 0.5%;
+  color: rgb(18, 18, 70);
+  font-size: 14px;
+}
+
+.input-workplace-table {
+  color: rgb(18, 18, 70);
+  font-size: 14px;
 }
 
 .select-table {
@@ -91,16 +99,60 @@ h4, input {
 
 .add-button {
   margin-left: 1%;
-  margin-top: 3.5%;
+  margin-top: 3%;
   height: 24px;
+  background-color: white; 
+  border: 1px solid rgb(104, 104, 131);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.add-button:hover {
+  background-color: rgb(69, 69, 133);
 }
 
 .table {
-  background-color: wheat;
   padding-left: 2%;
 }
 
 .table-title {
   width: 172px;
-  background-color: rgb(172, 172, 185);
+  height: 25px;
+  font-size: 15px;
+  font-weight: normal;
+  background-color: rgb(18, 18, 70);
+  color:white;
+}
+
+.table-title-none {
+  width: 60px;
+  height: 25px;
+  background-color: rgb(18, 18, 70);
+}
+
+.table-row {
+  width: 172px;
+  height: 25px;
+  font-size: 15px;
+  font-weight: normal;
+  color:rgb(18, 18, 70);
+  text-align: center;
+  border: 1px solid rgb(163, 163, 175);
+}
+
+.table-row-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 30px;
+}
+
+.table-row-updating {
+  width: 172px;
+  height: 25px;
+  font-size: 15px;
+  font-weight: normal;
+  color:rgb(18, 18, 70);
+  text-align: center;
+  border: 1px solid rgb(163, 163, 175);
 }
