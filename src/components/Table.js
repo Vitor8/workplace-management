@@ -11,8 +11,10 @@ function Table({ workPlaces, removeWorkPlace, isUpdatingWorkPlace, updateWorkPla
   const [hasCheckedSessionStorage, setHasCheckedSessionStorage] = useState(false);
 
   useEffect(() => {
-    const savedWorkPlaces = JSON.parse(sessionStorage.getItem('arrLocaisTrabalho')) || [];
-    checkSessionStorage(savedWorkPlaces.arrLocaisdeTrabalho);
+    let savedWorkPlaces = [];
+    const savedData = JSON.parse(sessionStorage.getItem('arrLocaisTrabalho')) || [];
+    if (savedData.length !== 0) savedWorkPlaces = savedData.arrLocaisdeTrabalho;
+    checkSessionStorage(savedWorkPlaces);
     setHasCheckedSessionStorage(true);
   },[]);
 
