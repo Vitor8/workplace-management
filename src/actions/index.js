@@ -1,19 +1,31 @@
 const ADD_WORKPLACE = 'ADD_WORKPLACE';
-const REMOVE_TASK = 'REMOVE_TASK';
-const UPDATE_TASK = 'UPDATE_TASK';
+const REMOVE_WORKPLACE = 'REMOVE_WORKPLACE';
+const IS_UPDATING_WORK_PLACE = 'IS_UPDATING_WORK_PLACE';
+const UPDATE_WORKPLACE = 'UPDATE_WORKPLACE';
 
-
-export const addWorkPlace = (task) => ({
+export const addWorkPlace = (selectedBuilding, workPlace) => ({
   type: ADD_WORKPLACE,
-  payload: task,
+  payload: {
+    selectedBuilding,
+    workPlace,
+  }
 });
 
-export const removeWorkPlace = (taskId) => ({
-  type: REMOVE_TASK,
-  payload: taskId,
+export const removeWorkPlace = (idWorkPlace) => ({
+  type: REMOVE_WORKPLACE,
+  payload: idWorkPlace,
 });
 
-export const updateWorkPlace = (task) => ({
-  type: UPDATE_TASK,
-  payload: task,
+export const isUpdatingWorkPlace = (idWorkPlace) => ({
+  type: IS_UPDATING_WORK_PLACE,
+  payload: idWorkPlace,
+});
+
+export const updateWorkPlace = (newWorkPlace) => ({
+  type: UPDATE_WORKPLACE,
+  payload: { 
+    selectedBuilding: newWorkPlace.selectedBuilding,
+    workPlace: newWorkPlace.workPlace,
+    id: newWorkPlace.id,
+  },
 });

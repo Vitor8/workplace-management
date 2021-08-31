@@ -1,0 +1,18 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(53, 53, 226);
+  color: white;
+}
+
+.header-login-container {
+  display: flex;
+  width: 15%;
+  justify-content: space-around;
+}
+
+.header-title {
+  margin-left: 3%;
+}
