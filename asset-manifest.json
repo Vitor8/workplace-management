@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/workplace-management/static/css/main.e51187d9.chunk.css",
+    "main.js": "/workplace-management/static/js/main.bea5f550.chunk.js",
+    "main.js.map": "/workplace-management/static/js/main.bea5f550.chunk.js.map",
+    "runtime-main.js": "/workplace-management/static/js/runtime-main.a35315b8.js",
+    "runtime-main.js.map": "/workplace-management/static/js/runtime-main.a35315b8.js.map",
+    "static/js/2.ea3dd141.chunk.js": "/workplace-management/static/js/2.ea3dd141.chunk.js",
+    "static/js/2.ea3dd141.chunk.js.map": "/workplace-management/static/js/2.ea3dd141.chunk.js.map",
+    "static/js/3.9bfc64b6.chunk.js": "/workplace-management/static/js/3.9bfc64b6.chunk.js",
+    "static/js/3.9bfc64b6.chunk.js.map": "/workplace-management/static/js/3.9bfc64b6.chunk.js.map",
+    "index.html": "/workplace-management/index.html",
+    "static/css/main.e51187d9.chunk.css.map": "/workplace-management/static/css/main.e51187d9.chunk.css.map",
+    "static/js/2.ea3dd141.chunk.js.LICENSE.txt": "/workplace-management/static/js/2.ea3dd141.chunk.js.LICENSE.txt",
+    "static/media/home-icon.b686c60b.png": "/workplace-management/static/media/home-icon.b686c60b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a35315b8.js",
+    "static/js/2.ea3dd141.chunk.js",
+    "static/css/main.e51187d9.chunk.css",
+    "static/js/main.bea5f550.chunk.js"
+  ]
+}
